@@ -1,0 +1,13 @@
+{
+  "main.css": "/buyer_list/static/css/main.ccf8ac8a.chunk.css",
+  "main.js": "/buyer_list/static/js/main.c8fea6b1.chunk.js",
+  "main.js.map": "/buyer_list/static/js/main.c8fea6b1.chunk.js.map",
+  "static/js/1.42e8628f.chunk.js": "/buyer_list/static/js/1.42e8628f.chunk.js",
+  "static/js/1.42e8628f.chunk.js.map": "/buyer_list/static/js/1.42e8628f.chunk.js.map",
+  "runtime~main.js": "/buyer_list/static/js/runtime~main.49f3055c.js",
+  "runtime~main.js.map": "/buyer_list/static/js/runtime~main.49f3055c.js.map",
+  "static/css/main.ccf8ac8a.chunk.css.map": "/buyer_list/static/css/main.ccf8ac8a.chunk.css.map",
+  "index.html": "/buyer_list/index.html",
+  "precache-manifest.5efa19b6165037f2d6876a418aad7baa.js": "/buyer_list/precache-manifest.5efa19b6165037f2d6876a418aad7baa.js",
+  "service-worker.js": "/buyer_list/service-worker.js"
+}
