@@ -1,85 +1,54 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './App.css';
 import ItemList from "./ItemList";
+import * as actions from './actions';
+
+
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return { 
+    onCreateItem: (event) => dispatch(actions.createItem(event)),
+    onIncrement:  (event) => dispatch(actions.increment(event)),
+    onDecrement:  (event) => dispatch(actions.decrement(event)),
+    omRemoveItem: (event) => dispatch(actions.removeItem(event))
+  }
+}
+
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: [{
-        count: 1, 
-        price: 100, 
-        value: function() {return this.count * this.price}
-      }]
-    }
-    this.createItem = this.createItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
     this.calculateSum = this.calculateSum.bind(this);
-  }
-
-  createItem(e) {
-    this.setState({
-      items: this.state.items.concat({
-        count: 1,
-        price: parseInt(e.target.previousSibling.value) && parseInt(e.target.previousSibling.value) > 0 ?
-                parseInt(e.target.previousSibling.value) : 1,
-        value: function() {return this.count * this.price}
-      })
-    });
   }
 
   calculateSum() {
     let sum = 0;
-    for (let i = 0; i < this.state.items.length; i++) {
-      sum += this.state.items[i].value();
+    for (let i = 0; i < this.props.items.length; i++) {
+      sum += this.props.items[i].value();
     }
     return sum;
-  }
-
-  increment(e) {
-    let items = this.state.items;
-    items[parseInt(e.target.dataset.elem)].count += 1;
-    this.setState({
-      items: items
-    });
-  }
-
-  decrement(e) {
-    let items = this.state.items;
-    if (items[parseInt(e.target.dataset.elem)].count > 1) {
-      items[parseInt(e.target.dataset.elem)].count -= 1;
-    } else if (items[parseInt(e.target.dataset.elem)].count <= 1) {
-      items.splice(parseInt(e.target.dataset.elem), 1)
-    }
-    this.setState({
-      items: items
-    });
   }
 
   componentDidMount() {
 
   }
 
-  removeItem(e) {
-    let items = this.state.items;
-    items.splice(parseInt(e.target.dataset.elem), 1);
-    this.setState({
-      items: items
-    });
-  }
-
   render() {
     return (
             <table>
-              <ItemList items={this.state.items}
+              <ItemList items={this.props.items}
                         addCount={this.addCount}
                         removeCount={this.removeCount}
-                        increment={this.increment}
-                        decrement={this.decrement}
-                        removeItem={this.removeItem} />
+                        increment={this.props.onIncrement}
+                        decrement={this.props.onDecrement}
+                        removeItem={this.props.onRemoveItem} />
               <tfoot>
                 <tr>
                   <td colSpan="2">
@@ -88,7 +57,7 @@ class App extends Component {
                           min="0"
                           pattern="[0-9]{1,}"
                           placeholder="Enter price" />
-                  <span onClick={this.createItem}>&#10010;</span>
+                  <span onClick={this.props.onCreateItem}>&#10010;</span>
                   </td>
                   <td id="sum">{this.calculateSum()} руб.</td>
                 </tr>
@@ -99,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
