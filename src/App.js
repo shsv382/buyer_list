@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
     onCreateItem: (event) => dispatch(actions.createItem(event)),
     onIncrement:  (event) => dispatch(actions.increment(event)),
     onDecrement:  (event) => dispatch(actions.decrement(event)),
-    omRemoveItem: (event) => dispatch(actions.removeItem(event))
+    onRemoveItem: (event) => dispatch(actions.removeItem(event))
   }
 }
 
