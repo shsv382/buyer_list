@@ -9,6 +9,9 @@ class Item extends React.Component {
 		return (
 				<tr>
 					<td>
+						{this.props.item.title}
+					</td>
+					<td>
 						<span data-elem={this.props.id} onClick={this.props.increment}>+</span>
 						{this.props.item.count} шт.
 						<span data-elem={this.props.id} onClick={this.props.decrement}>-</span>

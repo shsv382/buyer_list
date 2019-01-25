@@ -3,36 +3,36 @@ const initialState = {
 };
 
 export const setItemsList = (state=initialState, action={}) => {
+	let items = state.items;
 	switch(action.type) {
 		case "CREATE_ITEM":
+			let item = {
+	        	count: 1,
+	        	title: action.payload.title,
+	        	price: action.payload.price,
+	        	value: function() {return this.count * this.price}
+	    	}
 			return Object.assign({}, state, {
-				items: state.items.concat({
-		        	count: 1,
-		        	price: action.payload,
-		        	value: function() {return this.count * this.price}
-		    	})
+				items: state.items.concat(item)
 		    });
 		case "INCREMENT":
-			let incItems = state.items;
-			incItems[action.payload].count += 1;
+			items[action.payload].count += 1;
 			return Object.assign({}, state, {
-				items: incItems
+				items: [].concat(items)
 			});
 		case "DECREMENT":
-			let decItems = state.items;
-			if (decItems[action.payload].count > 1) {
-		      decItems[action.payload].count -= 1;
-		    } else if (decItems[action.payload].count <= 1) {
-		      decItems.splice(action.payload, 1)
+			if (items[action.payload].count > 1) {
+		      items[action.payload].count -= 1;
+		    } else if (items[action.payload].count <= 1) {
+		      items.splice(action.payload, 1)
 		    }
 			return Object.assign({}, state, {
-				items: decItems
+				items: [].concat(items)
 			});
 		case 'REMOVE_ITEM':
-			let newItems = state.items;
-		    newItems.splice(action.payload, 1);
+			items.splice(action.payload, 1);
 		    return Object.assign({}, state, {
-				items: newItems
+				items: [].concat(items)
 			});
 		default:
 			return state;

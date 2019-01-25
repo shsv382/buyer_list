@@ -1,7 +1,12 @@
 export const createItem = (event) => ({
 	type: 'CREATE_ITEM',
-	payload: parseInt(event.target.previousSibling.value) && parseInt(event.target.previousSibling.value) > 0 ?
-	 parseInt(event.target.previousSibling.value) : 1
+	payload: {
+		title: event.target.previousSibling.previousSibling.value.length == 0 ? 
+		"item" : event.target.previousSibling.previousSibling.value,
+		price:
+		parseInt(event.target.previousSibling.value) && parseInt(event.target.previousSibling.value) > 0 ?
+	 parseInt(event.target.previousSibling.value) : 50
+	}
 });
 
 export const increment = (event) => ({

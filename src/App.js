@@ -26,6 +26,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.calculateSum = this.calculateSum.bind(this);
+    this.preventFormSubmit = this.preventFormSubmit.bind(this);
   }
 
   calculateSum() {
@@ -37,7 +38,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
+  }
 
+  preventFormSubmit() {
+    return false;
   }
 
   render() {
@@ -52,12 +57,17 @@ class App extends Component {
               <tfoot>
                 <tr>
                   <td colSpan="2">
-                  <input  type="number" 
-                          name="price" 
-                          min="0"
-                          pattern="[0-9]{1,}"
-                          placeholder="Enter price" />
-                  <span onClick={this.props.onCreateItem}>&#10010;</span>
+                  <form onSubmit={this.preventFormSubmit}>
+                    <input  type="text" 
+                            name="name" 
+                            placeholder="Enter title" />
+                    <input  type="number" 
+                            name="price" 
+                            min="0"
+                            pattern="[0-9]{1,}"
+                            placeholder="Enter price" />
+                    <span onClick={this.props.onCreateItem}>&#10010;</span>
+                  </form>
                   </td>
                   <td id="sum">{this.calculateSum()} руб.</td>
                 </tr>

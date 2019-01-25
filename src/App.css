@@ -43,6 +43,11 @@ tr {
   width: 100%;
 }
 
+tbody {
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
 span {
   display: inline-block;
   padding: 5px;
