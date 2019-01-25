@@ -1,13 +1,13 @@
 {
-  "main.css": "/buyer_list/static/css/main.ccf8ac8a.chunk.css",
-  "main.js": "/buyer_list/static/js/main.ece70708.chunk.js",
-  "main.js.map": "/buyer_list/static/js/main.ece70708.chunk.js.map",
-  "static/js/1.42e8628f.chunk.js": "/buyer_list/static/js/1.42e8628f.chunk.js",
-  "static/js/1.42e8628f.chunk.js.map": "/buyer_list/static/js/1.42e8628f.chunk.js.map",
+  "main.css": "/buyer_list/static/css/main.9eb26d55.chunk.css",
+  "main.js": "/buyer_list/static/js/main.6ae78e41.chunk.js",
+  "main.js.map": "/buyer_list/static/js/main.6ae78e41.chunk.js.map",
+  "static/js/1.60a9b73d.chunk.js": "/buyer_list/static/js/1.60a9b73d.chunk.js",
+  "static/js/1.60a9b73d.chunk.js.map": "/buyer_list/static/js/1.60a9b73d.chunk.js.map",
   "runtime~main.js": "/buyer_list/static/js/runtime~main.49f3055c.js",
   "runtime~main.js.map": "/buyer_list/static/js/runtime~main.49f3055c.js.map",
-  "static/css/main.ccf8ac8a.chunk.css.map": "/buyer_list/static/css/main.ccf8ac8a.chunk.css.map",
+  "static/css/main.9eb26d55.chunk.css.map": "/buyer_list/static/css/main.9eb26d55.chunk.css.map",
   "index.html": "/buyer_list/index.html",
-  "precache-manifest.ade803108e7f63b52e5fbb6db32bfc2f.js": "/buyer_list/precache-manifest.ade803108e7f63b52e5fbb6db32bfc2f.js",
+  "precache-manifest.46cd55c5ead5dcf37adaf0d302250b74.js": "/buyer_list/precache-manifest.46cd55c5ead5dcf37adaf0d302250b74.js",
   "service-worker.js": "/buyer_list/service-worker.js"
 }
