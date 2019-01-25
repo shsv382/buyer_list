@@ -12,6 +12,15 @@ export const setItemsList = (state=initialState, action={}) => {
 	        	price: action.payload.price,
 	        	value: function() {return this.count * this.price}
 	    	}
+	    	let mappedItems = items.map(i => i.title);
+	    	for (let i = 0; i < mappedItems.length; i++) {
+	    		if (item.title === mappedItems[i]) {
+	    			items[i].count += 1;
+	    			return Object.assign({}, state, {
+						items: [].concat(items)
+				    });
+	    		}
+	    	}
 			return Object.assign({}, state, {
 				items: state.items.concat(item)
 		    });
